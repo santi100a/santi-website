@@ -1,0 +1,20 @@
+body {
+ background-image: url(Fotos/wallace.avif);
+ font-family: 'Calibri';
+} 
+img {
+    border-radius: 1pc;
+    width: 25%;
+    height: 25%;
+}
+img.vertical-image {
+    width: 25%;
+    height: 25%;
+}
+img.horizontal-image {
+    width: 25%;
+    height: 25%;
+}
+h1, p {
+    color: white;
+}

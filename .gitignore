@@ -1,0 +1,8 @@
+/**/node_modules
+/www/**/package*.*
+/**/.*rc.*
+/**/.ignore.*
+/www/build.bat
+/**/*config*.*
+/**/.eslint*
+/**/template*

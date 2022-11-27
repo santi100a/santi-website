@@ -1,0 +1,9 @@
+body {
+    font-family: system-ui;
+}
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+}

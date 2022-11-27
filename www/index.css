@@ -1,0 +1,32 @@
+/* stylelint-disable indentation */
+@import url("/css/css-dist/base.min.css");
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+a.button {
+    background-color: #4caf50;
+    /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
+    background: linear-gradient(45deg, red, blue);
+    margin: 0.1pc;
+    color: white;
+    padding: 1.5pc 3.2pc;
+    text-align: center;
+    text-decoration: none;
+    font-family: system-ui;
+    display: inline-block;
+    font-size: 1.2pc;
+    transition-duration: 0.5s;
+    border-radius: 1pc;
+}
+
+a.button:hover {
+    background-color: #4caf50;
+    /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
+    background: linear-gradient(45deg, blue, red);
+    color: white;
+    box-shadow: 0 1.2pc 1.6pc 0 #0000003d, 0 1.7pc 5pc 0 #00000030;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login de usuario">
+    <link rel="stylesheet" href="index.css" />
+    <title>Autenticación de usuarios</title>
+</head>
+<body>
+    <noscript>
+        Este sitio requiere JavaScript para funcionar. <br>
+        Si lo desactivas, ¿cómo vamos a enviar tus datos? <br>
+        Por favor, vuelve a activar JavaScript o haz una <br>
+        excepción para este sitio. <br>
+    </noscript>
+    <h1>Inicia sesión o regístrate</h1>
+    <section id="login">
+        <h2>Iniciar sesión o eliminar cuenta</h2>
+        <input type="text" id="username" placeholder="Nombre de usuario" required aria-required /> <br />
+        <input type="password" id="password" placeholder="Contraseña" required aria-required /> <br />
+        <button id="loginBtn">Iniciar sesión</button>
+        <button id="deleteBtn" class="danger">Borrar cuenta</button>
+    </section>
+    <section id="signup">
+        <h2>Crear o modificar datos de cuenta</h2>
+        <input type="text" id="username" placeholder="Nombre de usuario" required aria-required /> <br />
+        <input type="password" id="password" placeholder="Contraseña" required aria-required /> <br />
+        <input type="text" id="email" placeholder="Correo electrónico (opcional)"  /> <br />
+        <input type="text" id="name" placeholder="Nombre (opcional)"  /> <br />
+        <input type="text" id="fullname" placeholder="Nombre completo (opcional)"  /> <br />
+        <button id="signupBtn" class="success">Crear cuenta</button>
+        <button id="updateBtn" class="warning">Modificar datos</button>
+    </section>
+    <div id="banner"></div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+button {
+    padding: 1.5pc 3.2pc;
+    border-radius: 2pc;
+    font-family: inherit;
+    background-color: rgb(0, 102, 255);
+    color: white;
+}

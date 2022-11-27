@@ -1,0 +1,18 @@
+input[type="text"] {
+    padding: 1pc;
+	border: 0.1pc solid #ccc; 
+	border-radius: 0.5pc;
+	margin-bottom: 1pc;
+}
+
+input[type="submit"] {
+	padding: 1.6pc 3.2pc;
+    border: 0.1pc solid #ccc;
+	border-radius: 1pc;
+	background: blanchedalmond;
+}
+
+select {
+	padding: .8pc 1.6pc;
+    border: 0.1pc solid #ccc;
+}

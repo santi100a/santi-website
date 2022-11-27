@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificar y descodificar a Base64</title>
+    <style>body{font-family:system-ui}@media (prefers-color-scheme:dark){body{background:#000;color:#fff}}</style>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <noscript>
+        <strong>Ten en cuenta que en este navegador, puede que las respuestas sean más lentas.</strong>
+    </noscript>
+    <script>
+        window.onload = function(){ if (window.XMLHttpRequest) { 
+            var r = new window.XMLHttpRequest();
+            r.open("GET", "https://santi-apis.onrender.com/");
+            r.send();
+            r.onload = function(ev) {
+                if (r.status === 200) {
+                    console.log('Nuestros servidores han sido despertados con éxito.')
+                } else {
+                    console.error('Nuestros servidores han sido despertados, pero ha habido un error.', r.status)
+                    alert('Hay un error en nuestros servidores. ' + r.status + ' ' + r.statusText + '. NO envíes nada, ya que ocurrirá un error.')
+                }
+            }
+         }
+        else alert('Este navegador no soporta la funcionalidad necesaria para despertar al servidor. Ten en cuenta que esto puede hacer que las respuestas sean más lentas.')
+    }
+    </script>
+    <h1>Codificar y descodificar a Base64</h1>
+    <form action="https://santi-apis.onrender.com/utils/base64">
+        <input type="text" name="data" placeholder="Datos a codificar o descodificar" /> <br />
+        <label for="actions">Selecciona una acción</label>
+        <select name="action" id="actions">
+            <option value="encode">Codificar</option>
+            <option value="decode">Descodificar</option>
+        </select> <br />
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+</html>

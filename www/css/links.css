@@ -1,0 +1,6 @@
+a {
+    color: rgb(60, 120, 255);
+}
+a:visited {
+    color:  rgb(150, 60, 255);
+}

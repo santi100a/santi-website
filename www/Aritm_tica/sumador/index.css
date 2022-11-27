@@ -1,0 +1,52 @@
+body {
+    font-family: "Calibri";
+}
+input[type="text"] {
+    width: 50%;
+    padding: 1.2pc;
+    border: 0.1pc solid #ccc;
+    border-radius: 0.4pc;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    padding: 1.5pc 3.2pc;
+    background: #4f44e9;
+    font-family: system-ui;
+    border-radius: 2pc;
+    color: white;
+}
+.text {
+    font-size: medium;
+}
+.button {
+    font-family: "Calibri";
+    font-size: 60px;
+    background: #880000;  
+    border: 30px center black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+}
+.button:hover {
+    transition-duration: 0.5s;
+    background: #008800;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button:active {
+    transition-duration: 0.5ms;
+    background-color: #000088;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+}
