@@ -8,6 +8,4 @@ WORKDIR /app
 
 COPY . .
 
-RUN echo "$PORT"
-
 CMD [ "nginx", "-g", "daemon off;" ]
