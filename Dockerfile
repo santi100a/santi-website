@@ -8,4 +8,6 @@ WORKDIR /app
 
 COPY . .
 
-CMD [ "nginx", "-g", "daemon off;" ]
+RUN chmod +x ./start.sh
+
+CMD [ "./start.sh" ]
