@@ -1,6 +1,6 @@
 FROM nginx
 
-EXPOSE 80
+EXPOSE ${PORT}
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
