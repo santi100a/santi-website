@@ -1,6 +1,6 @@
 FROM nginx
 
-EXPOSE 10000
+EXPOSE ${PORT}
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
