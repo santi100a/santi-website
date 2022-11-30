@@ -1,13 +1,7 @@
-FROM nginx
+FROM nginx:alpine
 
-EXPOSE ${PORT}
+COPY www /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginxx.conf /etc/nginx/nginx.conf
 
-WORKDIR /app
-
-COPY . .
-
-RUN chmod +x ./start.sh
-
-CMD [ "./start.sh" ]
+COPY default.conf /etc/nginx/conf.d/default.conf

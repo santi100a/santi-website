@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
 
 echo "Running. PORT: $PORT"
-nginx -g "daemon off;"
+cat /etc/nginx/nginx.conf 
+nginx -tg "daemon off;"
