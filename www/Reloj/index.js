@@ -1,31 +1,42 @@
+import { retrieveTime } from "./modules/remote-time.js";
+import { getTwelveTimeString, getHandAngle } from "./modules/time-functions.js";
+
 const 
 	reloj = document.querySelector('#digital'),
 	hr = document.querySelector('#hour'),
 	mn = document.querySelector('#minute'),
 	sg = document.querySelector('#second');
 
-async function hora() {
-	const fecha = new Date;
-	let horas = fecha.getHours();
-	let minutos = fecha.getMinutes();
-	let segundos = fecha.getSeconds();
-	let amPm = horas < 12 ? 'AM' : 'PM';
-	if (horas > 12)
-		horas = horas - 12;
-	if (horas < 10) 	
-		horas = `0${horas}`;
-	if (minutos < 10) 
-		minutos = `0${minutos}`;
-	if (segundos < 10) 
-		segundos = `0${segundos}`;
-	reloj.innerHTML = `${horas}:${minutos}:${segundos} ${amPm}`;
-	let hr_rotation = 30 * horas + minutos / 2; 
-	let min_rotation = 6 * minutos;
-	let sec_rotation = 6 * segundos;
-	
-	hr.style.transform = `rotate(${hr_rotation}deg)`;
-	mn.style.transform = `rotate(${min_rotation}deg)`;
-	sg.style.transform = `rotate(${sec_rotation}deg)`;
+function updateUI(date, {
+	clock, hr, mn, sg
+}) {
+	const { hourRotation, minuteRotation, secondRotation } = getHandAngle({
+		hours: date.getUTCHours(),
+		seconds: date.getUTCSeconds(),
+		minutes: date.getUTCMinutes(),
+	});
+	clock.innerHTML = getTwelveTimeString(date);
+	hr.style.transform = `rotate(${hourRotation}deg)`;
+	mn.style.transform = `rotate(${minuteRotation}deg)`;
+	sg.style.transform = `rotate(${secondRotation}deg)`;
 }
 
-setInterval(hora, 1);
+async function hora() {
+	const [ tiempo, error ] = await retrieveTime(new URL('https://santi-apis.onrender.com/time'));
+	if (error) console.error('Falló la solicitud para actualizar el tiempo. Se usará el tiempo local.')
+	const fecha = new Date(tiempo?.timestamp || undefined);
+	updateUI(fecha, {
+		clock: reloj,
+		hr, mn, sg
+	})
+	
+	setInterval(() => {
+		fecha.setTime(fecha.getTime() + 1000)
+		updateUI(fecha, {
+			clock: reloj,
+			hr, mn, sg
+		})
+	}, 1000)
+}
+ 
+await hora();
