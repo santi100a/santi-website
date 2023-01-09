@@ -40,6 +40,16 @@ eval("\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=w
 
 /***/ }),
 
+/***/ "./src/success.wav":
+/*!*************************!*\
+  !*** ./src/success.wav ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"audio/success.wav\");\n\n//# sourceURL=webpack://d3-demo/./src/success.wav?");
+
+/***/ }),
+
 /***/ "./src/index.scss":
 /*!************************!*\
   !*** ./src/index.scss ***!
@@ -126,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/src/index.js\");\n/* harmony import */ var _santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @santi100/random-lib */ \"./node_modules/@santi100/random-lib/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants */ \"./src/constants.ts\");\n\r\n\r\n\r\n\r\nvar state = 0;\r\nvar setState = function (n) { return state = n; };\r\nvar promptState = 0;\r\nvar setPromptState = function (n) { return promptState = n; };\r\nvar root = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('div#root');\r\nvar prompt = root.append('p')\r\n    .attr('class', 'prompt')\r\n    .text(\"Contador: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\nvar sneakyPrompt = root.append('p')\r\n    .attr('class', 'prompt')\r\n    .text(\"Intentos: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\nvar svg = root.append('svg')\r\n    .attr('height', _constants__WEBPACK_IMPORTED_MODULE_3__.CANVAS_DIMENSIONS.height)\r\n    .attr('width', _constants__WEBPACK_IMPORTED_MODULE_3__.CANVAS_DIMENSIONS.width);\r\nvar circle = svg.append('circle')\r\n    .attr('cx', 35)\r\n    .attr('cy', 35)\r\n    .attr('r', _constants__WEBPACK_IMPORTED_MODULE_3__.CIRCLE_RADIUS)\r\n    .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_3__.COLORS));\r\nvar sneakyCircle = svg.append('circle')\r\n    .attr('class', 'sneaky')\r\n    .attr('cx', _constants__WEBPACK_IMPORTED_MODULE_3__.MIDDLE_X)\r\n    .attr('cy', _constants__WEBPACK_IMPORTED_MODULE_3__.MIDDLE_Y)\r\n    .attr('r', _constants__WEBPACK_IMPORTED_MODULE_3__.CIRCLE_RADIUS)\r\n    .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_3__.COLORS));\r\nfunction circleClickFor(circ) {\r\n    var args = arguments;\r\n    return function () {\r\n        var transition = circ.transition().duration(_constants__WEBPACK_IMPORTED_MODULE_3__.TRANSITION_DURATION);\r\n        transition.attr('cx', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__.random)(500, 30))\r\n            .attr('cy', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__.random)(500, 30))\r\n            .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_2__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_3__.COLORS));\r\n        return args;\r\n    };\r\n}\r\ncircle.on('click', function () {\r\n    setState(state + 1);\r\n    circleClickFor(circle)();\r\n    prompt.text(\"Contador: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\n});\r\nsneakyCircle.on('mouseover', function () {\r\n    setPromptState(promptState + 1);\r\n    circleClickFor(sneakyCircle)();\r\n    sneakyPrompt.text(\"Intentos: \".concat(promptState, \" (\").concat(promptState % 2 === 0 ? 'par' : 'impar', \").\"));\r\n    if (promptState >= 100)\r\n        sneakyPrompt.style('font-weight', 'bold');\r\n});\r\nsneakyCircle.on('click', function () {\r\n    alert('¡Hiciste clic en el Círculo Escurridizo!');\r\n    setPromptState(0);\r\n    sneakyPrompt.text(\"Intentos: \".concat(promptState, \" (\").concat(promptState % 2 === 0 ? 'par' : 'impar', \").\"));\r\n});\r\n\n\n//# sourceURL=webpack://d3-demo/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n/* harmony import */ var _success_wav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./success.wav */ \"./src/success.wav\");\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/src/index.js\");\n/* harmony import */ var _santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @santi100/random-lib */ \"./node_modules/@santi100/random-lib/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ \"./src/constants.ts\");\n/// <reference path=\"index.d.ts\" />\r\n\r\n\r\n\r\n\r\n\r\nvar audio = new Audio(_success_wav__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\nvar isMobile = function (ua) { return /(iPhone|iPad|iPod|Android)/i.test(ua); };\r\nif (isMobile(navigator.userAgent)) {\r\n    var canContinue = confirm('El Círculo Escurridizo no funcionará correctamente, a menos que tengas un mouse. ¿Continuar?');\r\n    if (!canContinue)\r\n        location.href = 'https://google.com';\r\n}\r\nvar state = 0;\r\nvar setState = function (n) { return state = n; };\r\nvar promptState = 0;\r\nvar setPromptState = function (n) { return promptState = n; };\r\nvar root = (0,d3__WEBPACK_IMPORTED_MODULE_2__.select)('div#root');\r\nvar prompt = root.append('p')\r\n    .attr('class', 'prompt')\r\n    .text(\"Contador: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\nvar sneakyPrompt = root.append('p')\r\n    .attr('class', 'prompt')\r\n    .text(\"Intentos: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\nvar svg = root.append('svg')\r\n    .attr('height', _constants__WEBPACK_IMPORTED_MODULE_4__.CANVAS_DIMENSIONS.height)\r\n    .attr('width', _constants__WEBPACK_IMPORTED_MODULE_4__.CANVAS_DIMENSIONS.width);\r\nvar circle = svg.append('circle')\r\n    .attr('cx', 35)\r\n    .attr('cy', 35)\r\n    .attr('r', _constants__WEBPACK_IMPORTED_MODULE_4__.CIRCLE_RADIUS)\r\n    .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_4__.COLORS));\r\nvar sneakyCircle = svg.append('circle')\r\n    .attr('class', 'sneaky')\r\n    .attr('cx', _constants__WEBPACK_IMPORTED_MODULE_4__.MIDDLE_X)\r\n    .attr('cy', _constants__WEBPACK_IMPORTED_MODULE_4__.MIDDLE_Y)\r\n    .attr('r', _constants__WEBPACK_IMPORTED_MODULE_4__.CIRCLE_RADIUS)\r\n    .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_4__.COLORS));\r\nfunction circleClickFor(circ) {\r\n    var args = arguments;\r\n    return function () {\r\n        var transition = circ.transition().duration(_constants__WEBPACK_IMPORTED_MODULE_4__.TRANSITION_DURATION);\r\n        transition.attr('cx', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__.random)(500, 30))\r\n            .attr('cy', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__.random)(500, 30))\r\n            .attr('fill', (0,_santi100_random_lib__WEBPACK_IMPORTED_MODULE_3__.randomFromArray)(_constants__WEBPACK_IMPORTED_MODULE_4__.COLORS));\r\n        return args;\r\n    };\r\n}\r\ncircle.on('click', function () {\r\n    setState(state + 1);\r\n    circleClickFor(circle)();\r\n    prompt.text(\"Contador: \".concat(state, \" (\").concat(state % 2 === 0 ? 'par' : 'impar', \").\"));\r\n});\r\nsneakyCircle.on('mouseover', function () {\r\n    setPromptState(promptState + 1);\r\n    circleClickFor(sneakyCircle)();\r\n    sneakyPrompt.text(\"Intentos: \".concat(promptState, \" (\").concat(promptState % 2 === 0 ? 'par' : 'impar', \").\"));\r\n    if (promptState >= 100)\r\n        sneakyPrompt.style('font-weight', 'bold');\r\n    if (promptState >= 1000)\r\n        root.text('Gracias a Freesound.org por el sonido al hacer clic en el Círculo Escurridizo.');\r\n});\r\nsneakyCircle.on('click', function () {\r\n    audio.play();\r\n    alert('¡Hiciste clic en el Círculo Escurridizo!');\r\n    setPromptState(0);\r\n    sneakyPrompt.text(\"Intentos: \".concat(promptState, \" (\").concat(promptState % 2 === 0 ? 'par' : 'impar', \").\"));\r\n});\r\n\n\n//# sourceURL=webpack://d3-demo/./src/index.ts?");
 
 /***/ }),
 
@@ -5851,6 +5861,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -5865,6 +5887,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

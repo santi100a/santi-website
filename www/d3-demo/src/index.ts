@@ -1,10 +1,22 @@
+/// <reference path="index.d.ts" />
+
 import './index.scss';
+import aud from './success.wav';
 import { select } from 'd3';
 import { randomFromArray, random } from '@santi100/random-lib';
 import { 
     CANVAS_DIMENSIONS, CIRCLE_RADIUS, COLORS, 
     TRANSITION_DURATION, MIDDLE_X, MIDDLE_Y 
 } from './constants';
+
+const audio = new Audio(aud);
+
+const isMobile = (ua: string) => /(iPhone|iPad|iPod|Android)/i.test(ua);
+
+if (isMobile(navigator.userAgent)) {
+    const canContinue = confirm('El Círculo Escurridizo no funcionará correctamente, a menos que tengas un mouse. ¿Continuar?');
+    if (!canContinue) location.href = 'https://google.com';
+}
 
 let state = 0;
 const setState = <T extends typeof state = typeof state>(n: T) => state = n;
@@ -58,8 +70,12 @@ sneakyCircle.on('mouseover', () => {
     circleClickFor(sneakyCircle)();
     sneakyPrompt.text(`Intentos: ${promptState} (${promptState % 2 === 0 ? 'par' : 'impar'}).`);
     if (promptState >= 100) sneakyPrompt.style('font-weight', 'bold');
+
+    if (promptState >= 1000) 
+    root.text('Gracias a Freesound.org por el sonido al hacer clic en el Círculo Escurridizo.');
 });
 sneakyCircle.on('click', () => {
+    audio.play();
     alert('¡Hiciste clic en el Círculo Escurridizo!');
     setPromptState(0);
     sneakyPrompt.text(`Intentos: ${promptState} (${promptState % 2 === 0 ? 'par' : 'impar'}).`);
