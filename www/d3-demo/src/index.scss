@@ -1,0 +1,20 @@
+$fr: .1fr .1fr;
+
+svg {
+    border: .5px solid gray;
+    :nth-child(1) {
+        cursor: pointer;
+    }
+    grid-column: span 2;
+}
+#root {
+    display: grid;
+    grid-template-columns: $fr;
+    grid-template-rows: $fr;
+}
+button, .btn {
+    font-family: inherit;
+    background-color: rgb(72, 72, 247);
+    color: white;
+    border-radius: .5pc;
+}
