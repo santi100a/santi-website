@@ -13,7 +13,8 @@ const audio = new Audio(aud);
 
 const isMobile = (ua: string) => /(iPhone|iPad|iPod|Android)/i.test(ua);
 
-if (isMobile(navigator.userAgent)) {
+// @ts-expect-error
+if (isMobile(navigator.userAgent) || navigator.userAgentData?.mobile) {
     const canContinue = confirm('El Círculo Escurridizo no funcionará correctamente, a menos que tengas un mouse. ¿Continuar?');
     if (!canContinue) location.href = 'https://google.com';
 }
@@ -71,8 +72,6 @@ sneakyCircle.on('mouseover', () => {
     sneakyPrompt.text(`Intentos: ${promptState} (${promptState % 2 === 0 ? 'par' : 'impar'}).`);
     if (promptState >= 100) sneakyPrompt.style('font-weight', 'bold');
 
-    if (promptState >= 1000) 
-    root.text('Gracias a Freesound.org por el sonido al hacer clic en el Círculo Escurridizo.');
 });
 sneakyCircle.on('click', () => {
     audio.play();
@@ -80,3 +79,6 @@ sneakyCircle.on('click', () => {
     setPromptState(0);
     sneakyPrompt.text(`Intentos: ${promptState} (${promptState % 2 === 0 ? 'par' : 'impar'}).`);
 });
+console.log(
+    'Sonido al hacer clic en el Círculo Escurridizo: \nhttps://freesound.org/people/Leszek_Szary/sounds/171670'
+);
