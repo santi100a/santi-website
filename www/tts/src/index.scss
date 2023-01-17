@@ -1,0 +1,19 @@
+input[type="submit"] {
+    padding: 1.5pc 3.2pc;
+    background: #4f44e9;
+    font-family: system-ui;
+    border-radius: 2pc;
+    color: white;
+}
+select {
+    padding: 1.2pc;
+    border: 0.1pc solid #ccc;
+    border-radius: 0.4pc;
+}
+textarea {
+    width: 50%;
+    padding: 1.2pc;
+    border: 0.1pc solid #ccc;
+    border-radius: 0.4pc;
+    height: 57px;
+}

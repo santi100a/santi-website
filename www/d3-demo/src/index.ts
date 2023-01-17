@@ -11,10 +11,9 @@ import {
 
 const audio = new Audio(aud);
 
-const isMobile = (ua: string) => /(iPhone|iPad|iPod|Android)/i.test(ua);
 
 // @ts-expect-error
-if (isMobile(navigator.userAgent) || navigator.userAgentData?.mobile) {
+if (navigator.userAgentData?.mobile) {
     const canContinue = confirm('El Círculo Escurridizo no funcionará correctamente, a menos que tengas un mouse. ¿Continuar?');
     if (!canContinue) location.href = 'https://google.com';
 }
