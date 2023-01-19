@@ -1,6 +1,10 @@
 import React from 'react';
 import './index.scss';
 
+navigator?.serviceWorker?.register('./sw.js')
+    .then(() => console.log('Successfully registered service worker.'))
+    .catch(() => console.error('Failed to register service worker.'))
+
 function speak(text: string, rate?: number, pitch?: number) {
     
     if ('SpeechSynthesisUtterance' in window && 'speechSynthesis' in window) {
@@ -39,7 +43,7 @@ function App() {
                 id="speed" /><br />
                 <label htmlFor="pitch">Tono: </label>
                 <select defaultValue={1} ref={pitchRef} id="pitch">
-                    <option value="-1">Grave</option>
+                    <option value="-440">Grave</option>
                     <option value="1">Medio</option>
                     <option value="2">Agudo</option>
                 </select><br />
