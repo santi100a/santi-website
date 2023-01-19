@@ -43,7 +43,7 @@ function App() {
                 id="speed" /><br />
                 <label htmlFor="pitch">Tono: </label>
                 <select defaultValue={1} ref={pitchRef} id="pitch">
-                    <option value="-440">Grave</option>
+                    <option value="0">Grave</option>
                     <option value="1">Medio</option>
                     <option value="2">Agudo</option>
                 </select><br />
