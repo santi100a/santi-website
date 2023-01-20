@@ -3,6 +3,6 @@
 importScripts('./lib/workbox-sw.js');
 
 workbox.routing.registerRoute(
-    ({request}) => request.destination === 'image',
-    new workbox.strategies.CacheFirst()
+    () => true,
+    new workbox.strategies.NetworkFirst()
 );
