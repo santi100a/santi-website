@@ -1,1 +1,1 @@
-importScripts("./lib/workbox-sw.js"),workbox.routing.registerRoute((()=>!0),new workbox.strategies.CacheFirst);
+importScripts("./lib/workbox-sw.js"),workbox.routing.registerRoute((()=>!0),new workbox.strategies.NetworkFirst);

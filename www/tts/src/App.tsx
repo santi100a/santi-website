@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+import WarningButton from './WarningButton';
 
 navigator?.serviceWorker?.register('./sw.js')
     .then(() => console.log('Successfully registered service worker.'))
@@ -16,6 +17,11 @@ function speak(text: string, rate?: number, pitch?: number) {
     }
 }
 function App() {
+    if (!('speechSynthesis' in window) && !('SpeechSynthesisUtterance' in window)) {
+        alert('Este navegador no admite la API de síntesis de voz.');
+        (globalThis || window || this).history?.go(-1);
+    }
+
     const handleSubmit = React.useCallback(
         function (event: React.FormEvent) {
             event.preventDefault();
@@ -29,7 +35,22 @@ function App() {
     const inputRef = React.useRef<HTMLTextAreaElement>();
     const speedRef = React.useRef<HTMLInputElement>();
     const pitchRef = React.useRef<HTMLSelectElement>();
+    const buttonRef = React.useRef<HTMLInputElement>();
+    let count = 0;
+    const hwButton = React.useCallback(() => {
+        const el = document.querySelector('button');
+        count++;
+        el.innerText = count % 2 === 0 ? 'Pausar' : 'Reanudar';
+        el.classList.toggle('warning');
 
+        if (count % 2 === 0) {
+            if (window.speechSynthesis?.paused)
+                window.speechSynthesis?.resume();
+        } else {
+            window.speechSynthesis?.pause();
+        }
+    }, []);
+    
     return (
         <>
             <h1>Texto a voz</h1>
@@ -47,10 +68,15 @@ function App() {
                     <option value="1">Medio</option>
                     <option value="2">Agudo</option>
                 </select><br />
-                <input type="submit" />
+                <input name="submit" type="submit" ref={buttonRef} />
+                <WarningButton onClick={hwButton}>
+                    Pausar
+                </WarningButton>
             </form>
+            <p>Voces listas.</p>
         </>
     );
 }
+
 
 export default App;
