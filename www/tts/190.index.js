@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktts=self.webpackChunktts||[]).push([[190],{190:(e,s,t)=>{var c;t.r(s),t.d(s,{default:()=>n}),null===(c=window.speechSynthesis)||void 0===c||c.addEventListener("voiceschanged",(function(){console.log("Voces cambiadas."),document.querySelector("p").style.display="block"}));const n=null}}]);

@@ -1,8 +1,1 @@
-/* eslint-disable no-undef */
-
-importScripts('./lib/workbox-sw.js');
-
-workbox.routing.registerRoute(
-    () => true,
-    new workbox.strategies.NetworkFirst()
-);
+importScripts("./workbox-core.prod.js","./workbox-routing.prod.js","./workbox-strategies.prod.js"),workbox.routing.registerRoute((()=>!0),new workbox.strategies.NetworkFirst);const channel=new BroadcastChannel("todos"),languageChannel=new BroadcastChannel("use-english");async function getTodos(){return new Promise((o=>{channel.addEventListener("message",(({data:t})=>{o(JSON.parse(t))}))}))}async function showNotifications(){(await getTodos()).forEach((({text:o,expiration:t})=>{const e=Date.now();-1===t?console.log("No expiration for: ",o):e>=t?self.registration.showNotification(o):setTimeout((()=>{self.registration.showNotification(o)}),t-e)}))}showNotifications();

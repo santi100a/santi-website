@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_app=self.webpackChunkreact_app||[]).push([[584],{584:(e,t,a)=>{a.r(t),a.d(t,{default:()=>r});var n=a(294);const r=function(e){var t=e.todos;return n.createElement("ul",null,t.map((function(e){return n.createElement("li",{key:e},e)})))}}}]);

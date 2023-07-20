@@ -1,0 +1,24 @@
+{
+  "name": "first_java",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "4.9.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@santi100/random-lib": "^1.1.6"
+  }
+}

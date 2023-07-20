@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+import './index.css';
 import WarningButton from './WarningButton';
 
 navigator?.serviceWorker?.register('./sw.js')
@@ -25,17 +25,17 @@ function App() {
     const handleSubmit = React.useCallback(
         function (event: React.FormEvent) {
             event.preventDefault();
-            const { value: text } = inputRef.current;
+            const { value: text  } = inputRef.current;
             const { value: speed } = speedRef.current;
             const { value: pitch } = pitchRef.current;
 
             speak(text, Number(speed), Number(pitch));
         }, 
     [])
-    const inputRef = React.useRef<HTMLTextAreaElement>();
-    const speedRef = React.useRef<HTMLInputElement>();
-    const pitchRef = React.useRef<HTMLSelectElement>();
-    const buttonRef = React.useRef<HTMLInputElement>();
+    const inputRef  = React.useRef<HTMLTextAreaElement>();
+    const speedRef  =    React.useRef<HTMLInputElement>();
+    const pitchRef  =   React.useRef<HTMLSelectElement>();
+    const buttonRef =    React.useRef<HTMLInputElement>();
     let count = 0;
     const hwButton = React.useCallback(() => {
         const el = document.querySelector('button');
@@ -50,6 +50,8 @@ function App() {
             window.speechSynthesis?.pause();
         }
     }, []);
+
+    speak('');
     
     return (
         <>

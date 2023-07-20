@@ -1,0 +1,6 @@
+{
+    "rules": {
+        "block-no-empty": true,
+        "unit-allowed-list": [ "%", "s", "pc", "fr", "deg", "vh", "px", "vw" ]
+    }   
+}
