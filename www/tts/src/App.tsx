@@ -16,7 +16,7 @@ function speak(text: string, rate?: number, pitch?: number) {
         speechSynthesis.speak(utterance);
     }
 }
-function App() {
+function App(this: Window & typeof globalThis) {
     if (!('speechSynthesis' in window) && !('SpeechSynthesisUtterance' in window)) {
         alert('Este navegador no admite la API de síntesis de voz.');
         (globalThis || window || this).history?.go(-1);
@@ -25,20 +25,20 @@ function App() {
     const handleSubmit = React.useCallback(
         function (event: React.FormEvent) {
             event.preventDefault();
-            const { value: text  } = inputRef.current;
-            const { value: speed } = speedRef.current;
-            const { value: pitch } = pitchRef.current;
+            const { value: text  } = inputRef!.current!;
+            const { value: speed } = speedRef!.current!;
+            const { value: pitch } = pitchRef!.current!;
 
             speak(text, Number(speed), Number(pitch));
         }, 
     [])
-    const inputRef  = React.useRef<HTMLTextAreaElement>();
-    const speedRef  =    React.useRef<HTMLInputElement>();
-    const pitchRef  =   React.useRef<HTMLSelectElement>();
-    const buttonRef =    React.useRef<HTMLInputElement>();
+    const inputRef  = React.useRef<HTMLTextAreaElement>() as React.RefObject<HTMLTextAreaElement>;
+    const speedRef  = React.useRef<HTMLInputElement>() as React.RefObject<HTMLInputElement>;
+    const pitchRef  = React.useRef<HTMLSelectElement>() as React.RefObject<HTMLSelectElement>;
+    const buttonRef = React.useRef<HTMLInputElement>() as React.RefObject<HTMLInputElement>;
     let count = 0;
     const hwButton = React.useCallback(() => {
-        const el = document.querySelector('button');
+        const el = document.querySelector('button')!;
         count++;
         el.innerText = count % 2 === 0 ? 'Pausar' : 'Reanudar';
         el.classList.toggle('warning');
@@ -51,6 +51,7 @@ function App() {
         }
     }, []);
 
+    document?.body?.click?.();
     speak('');
     
     return (
