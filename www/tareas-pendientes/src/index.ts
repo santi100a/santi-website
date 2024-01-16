@@ -1,9 +1,8 @@
+import './index.css'
 import {
   Todo,
   Priority,
-  renderTodos,
-  todoExists,
-  todoIndex,
+  renderTodos
 } from '../lib/utilities';
 import { randomUUID } from '@santi100/random-lib/cjs/random-uuid';
 
@@ -11,41 +10,41 @@ const jsonTodos = localStorage.getItem('todos');
 const todos: Todo[] = jsonTodos === null ? [] : JSON.parse(jsonTodos);
 const useEnglish = !navigator.language.includes('es-');
 
-const ul = document.querySelector('ul');
-const form: HTMLFormElement = document.querySelector('form#todo-form');
-const input: HTMLInputElement = document.querySelector('input#todo-input');
-const button: HTMLInputElement = document.querySelector('input#todo-submit');
+const ul = document.querySelector('ul')!;
+const form: HTMLFormElement = document.querySelector('form#todo-form')!;
+const input: HTMLInputElement = document.querySelector('input#todo-input')!;
+const button: HTMLInputElement = document.querySelector('input#todo-submit')!;
 const deleteAllTodos: HTMLButtonElement =
-  document.querySelector('button#delete-all');
+  document.querySelector('button#delete-all')!;
 const expirationDateInput: HTMLInputElement =
-  document.querySelector('input#date');
+  document.querySelector('input#date')!;
 const expirationTimeInput: HTMLInputElement =
-  document.querySelector('input#time');
+  document.querySelector('input#time')!;
 
 const enableNotificationsButton: HTMLButtonElement = document.querySelector(
   'button#enable-notifications'
-);
-const toolSummary = document.querySelector('summary');
+)!;
+const toolSummary = document.querySelector('summary')!;
 const prioritySelector: HTMLSelectElement = document.querySelector(
   'select#priority-selector'
-);
+)!;
 const highPriority: HTMLOptionElement = document.querySelector(
   'option.high-priority'
-);
+)!;
 const mediumPriority: HTMLOptionElement = document.querySelector(
   'option.medium-priority'
-);
+)!;
 const lowPriority: HTMLOptionElement = document.querySelector(
   'option.low-priority'
-);
+)!;
 const priorityLabel: HTMLLabelElement = document.querySelector(
   'label[for="priority-selector"]'
-);
+)!;
 const expirationDateLabel: HTMLLabelElement =
-  document.querySelector('label[for="date"]');
+  document.querySelector('label[for="date"]')!;
 const expirationTimeLabel: HTMLLabelElement =
-  document.querySelector('label[for="time"]');
-const description: HTMLMetaElement = document.querySelector('meta#desc');
+  document.querySelector('label[for="time"]')!;
+const description: HTMLMetaElement = document.querySelector('meta#desc')!;
 enableNotificationsButton.addEventListener('click', () => {
   Notification.requestPermission();
 });

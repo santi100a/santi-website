@@ -65,7 +65,7 @@ export function todoExists(todos: Todo[], id: string) {
   }
   return ids.indexOf(id) !== -1;
 }
-export function todoIndex(todos: Todo[], id: string) {
+function todoIndex(todos: Todo[], id: string) {
   const ids: string[] = [];
   for (const { id } of todos) {
     ids.push(id);

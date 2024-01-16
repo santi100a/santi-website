@@ -75,7 +75,6 @@ function App(this: Window & typeof globalThis) {
                     Pausar
                 </WarningButton>
             </form>
-            <p>Voces listas.</p>
         </>
     );
 }
