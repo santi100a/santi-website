@@ -1,0 +1,21 @@
+{
+  "name": "santi-website",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "index.js",
+  "repository": "https://github.com/santi100a/santi-website.git",
+  "author": "santi100a <95766532+santi100a@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7"
+  },
+  "scripts": {
+    "start": "node ."
+  }
+}

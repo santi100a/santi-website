@@ -1,39 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Login de usuario">
-    <link rel="stylesheet" href="index.css" />
-    <title>Autenticación de usuarios</title>
-</head>
-<body>
-    <noscript>
-        Este sitio requiere JavaScript para funcionar. <br>
-        Si lo desactivas, ¿cómo vamos a enviar tus datos? <br>
-        Por favor, vuelve a activar JavaScript o haz una <br>
-        excepción para este sitio. <br>
-    </noscript>
-    <h1>Inicia sesión o regístrate</h1>
-    <section id="login">
-        <h2>Iniciar sesión o eliminar cuenta</h2>
-        <input type="text" id="username" placeholder="Nombre de usuario" required aria-required /> <br />
-        <input type="password" id="password" placeholder="Contraseña" required aria-required /> <br />
-        <button id="loginBtn">Iniciar sesión</button>
-        <button id="deleteBtn" class="danger">Borrar cuenta</button>
-    </section>
-    <section id="signup">
-        <h2>Crear o modificar datos de cuenta</h2>
-        <input type="text" id="username" placeholder="Nombre de usuario" required aria-required /> <br />
-        <input type="password" id="password" placeholder="Contraseña" required aria-required /> <br />
-        <input type="text" id="email" placeholder="Correo electrónico (opcional)"  /> <br />
-        <input type="text" id="name" placeholder="Nombre (opcional)"  /> <br />
-        <input type="text" id="fullname" placeholder="Nombre completo (opcional)"  /> <br />
-        <button id="signupBtn" class="success">Crear cuenta</button>
-        <button id="updateBtn" class="warning">Modificar datos</button>
-    </section>
-    <div id="banner"></div>
-    <script src="index.js" type="module"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Login de usuario" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Autenticación de usuarios</title>
+	</head>
+	<body>
+		<noscript>
+			Este sitio requiere JavaScript para funcionar. <br />
+			Si lo desactivas, ¿cómo vamos a enviar tus datos? <br />
+			Por favor, vuelve a activar JavaScript o haz una <br />
+			excepción para este sitio. <br />
+		</noscript>
+		<h1>Inicia sesión, regístrate y envía dinero - Banco de Santinia</h1>
+		<form id="signup">
+			<h2>¡Únete al Banco!</h2>
+			<input
+				type="text"
+				id="username"
+				placeholder="Nombre de usuario"
+				required
+				aria-required />
+			<br />
+			<input id="signupBtn" class="button success" type="submit" value="Crear cuenta" />
+            
+		</form>
+		<form id="login">
+            <h2>Iniciar sesión para ver saldo</h2>
+			<input
+            type="text"
+            id="username"
+            placeholder="Nombre de usuario"
+            required
+            aria-required />
+			<br />
+			<input
+            type="password"
+            id="password"
+            placeholder="Token"
+            required
+            aria-required />
+			<br />
+			<input id="loginBtn" type="submit" class="button" value="Iniciar sesión"></button>
+            
+			<div id="banner"></div>
+
+            <button id="transactionBtn">Ver historial de transacciones</button>
+		</form>
+		<form id="send">
+			<h2>Enviar fondos</h2>
+			<input
+				type="text"
+				id="username"
+				placeholder="Nombre de usuario"
+				required
+				aria-required />
+			<br />
+			<input
+				type="password"
+				id="password"
+				placeholder="Token"
+				required
+				aria-required />
+			<br />
+			<input
+				type="text"
+				id="payee"
+				placeholder="Beneficiario"
+				required
+				aria-required />
+			<br />
+            <input
+				type="text"
+				id="purpose"
+				placeholder="Concepto (opcional)"
+                value=""
+             />
+			<br />
+			<input
+				type="number"
+				step="0.01"
+				pattern="\d+(\.\d{1,2})?"
+				min="0"
+				id="amount"
+				placeholder="Monto a enviar" />
+			<br />
+
+			<input
+				type="submit"
+				id="sendBtn"
+				class="button warning"
+				value="Generar transacción" />
+		</form>
+		<form id="delete">
+			<h2>Eliminar cuenta bancaria</h2>
+			<input
+				type="text"
+				id="username"
+				placeholder="Nombre de usuario"
+				required
+				aria-required />
+			<br />
+			<input
+				type="password"
+				id="password"
+				placeholder="Token"
+				required
+				aria-required />
+			<br />
+			<p>Solo puedes eliminar tu cuenta si tu saldo es cero.</p>
+
+			<input
+				type="submit"
+				id="deleteBtn"
+				class="button danger"
+				value="Borrar cuenta" />
+		</form>
+		<script src="index.js" type="module"></script>
+	</body>
 </html>

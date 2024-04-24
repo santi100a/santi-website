@@ -1,43 +1,54 @@
 body {
-    font-family: system-ui;
+	font-family: system-ui;
 }
-input[type="text"], input[type="password"] {
-    padding: 10px;
-	border: 1px solid #ccc; 
+input {
+	padding: 10px;
+	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
-button {
-    background-color: rgb(91, 91, 235);
+.button {
+	background-color: rgb(91, 91, 235);
 	padding: 15px 32px;
 	border-radius: 5px;
 	color: white;
-    font-family: system-ui;
+	font-family: system-ui;
 }
-button.danger {
-    background: red;
-    color: black;
+.button.danger {
+	background: red;
+	color: black;
 }
-button.warning {
-    background: rgb(255, 208, 0);
-    color: black;
+.button.warning {
+	background: rgb(255, 208, 0);
+	color: black;
 }
-button.success {
-    background: rgb(0, 200, 0);
-    color: black;
+.success {
+	background: rgb(0, 200, 0);
+	color: black;
+}
+.loader {
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(blue, red);
+}
+.spinning-loader {
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(blue, red);
+    transition: _spin linear infinite;
 }
 @keyframes _spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-        background: black;
-    }
+	body {
+		color: white;
+		background: black;
+	}
 }
