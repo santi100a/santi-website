@@ -9,6 +9,15 @@ input[type='time'] {
   margin-right: 2pc;
 }
 
+:disabled {
+  background-color: #666666;
+  color: black;
+  cursor: not-allowed;
+}
+:disabled:hover {
+  opacity: 100%;
+}
+
 input[type='submit'],
 button {
   padding: 1.5pc 3.2pc;
@@ -19,6 +28,10 @@ button {
   border-radius: 1pc;
   opacity: 1;
   transition: opacity 0.3s ease;
+}
+
+select, input[type="text"] {
+  font-family: inherit;
 }
 
 input[type='submit'].danger,
@@ -46,6 +59,8 @@ li.low-priority::marker {
 body {
   font-family: system-ui;
   color: white;
+  background: #020024;
+  background-color: #020024;
 }
 
 button:hover,
@@ -54,7 +69,7 @@ input[type="submit"]:hover {
 }
 
 body {
-  background: rgb(2, 0, 36);
+  background: #020024;
   background: -moz-linear-gradient(90deg,
       rgba(2, 0, 36, 1) 0%,
       rgba(9, 9, 121, 1) 35%,

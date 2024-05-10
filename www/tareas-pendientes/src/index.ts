@@ -1,9 +1,5 @@
-import './index.css'
-import {
-  Todo,
-  Priority,
-  renderTodos
-} from '../lib/utilities';
+import './index.css';
+import { Todo, Priority, renderTodos } from '../lib/utilities';
 import { randomUUID } from '@santi100/random-lib/cjs/random-uuid';
 
 const jsonTodos = localStorage.getItem('todos');
@@ -48,6 +44,7 @@ const description: HTMLMetaElement = document.querySelector('meta#desc')!;
 enableNotificationsButton.addEventListener('click', () => {
   Notification.requestPermission();
 });
+
 if (!useEnglish) {
   document.title = 'Lista de pendientes';
   description.content = 'Tareas pendientes';
@@ -62,6 +59,21 @@ if (!useEnglish) {
   button.value = 'Agregar pendiente';
   toolSummary.innerText = 'Otras opciones';
   deleteAllTodos.innerText = 'Eliminar TODOS los pendientes';
+}
+if (Notification.permission === 'granted') {
+  enableNotificationsButton.innerText = useEnglish
+    ? 'Disable Notifications'
+    : 'Desactivar notificaciones';
+}
+if (Notification.permission === 'denied') {
+  enableNotificationsButton.innerText = useEnglish
+    ? 'Notifications Blocked by Browser'
+    : 'Notificaciones bloqueadas por navegador';
+  enableNotificationsButton.disabled = true;
+}
+
+if (typeof window.Notification === 'undefined') {
+  enableNotificationsButton.hidden = true;
 }
 
 const todoChannel = new BroadcastChannel('todos');
@@ -113,3 +125,9 @@ deleteAllTodos.addEventListener('click', () => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 });
+
+if (Notification.permission === 'granted') {
+  enableNotificationsButton.innerText = useEnglish
+    ? 'Disable Notifications'
+    : 'Desactivar notificaciones';
+}
