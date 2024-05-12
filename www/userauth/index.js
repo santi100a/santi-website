@@ -144,6 +144,7 @@ ${
 
         menu.appendChild(list);
 		loginForm.appendChild(menu);
+        loginForm.removeChild(text);
 	}
 });
 

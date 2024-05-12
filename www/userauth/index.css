@@ -14,6 +14,13 @@ input {
 	color: white;
 	font-family: system-ui;
 }
+#transactionBtn {
+	background-color: whitesmoke;
+	padding: 15px 32px;
+	border-radius: 5px;
+	color: black;
+	font-family: system-ui;
+}
 .button.danger {
 	background: red;
 	color: black;
