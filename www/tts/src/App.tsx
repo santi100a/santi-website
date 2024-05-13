@@ -2,9 +2,6 @@ import React from 'react';
 import './index.css';
 import WarningButton from './WarningButton';
 
-navigator?.serviceWorker?.register('./sw.js')
-    .then(() => console.log('Successfully registered service worker.'))
-    .catch(() => console.error('Failed to register service worker.'))
 
 function speak(text: string, rate?: number, pitch?: number) {
     
@@ -13,6 +10,7 @@ function speak(text: string, rate?: number, pitch?: number) {
 
         utterance.rate = rate || 1;
         utterance.pitch = pitch || 1;
+        document.body.click();
         speechSynthesis.speak(utterance);
     }
 }
