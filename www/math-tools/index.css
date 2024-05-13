@@ -1,0 +1,17 @@
+@import url(/css/css-dist/base.min.css);
+
+div.enlaces {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+a.button {
+    padding: 1.5pc 3.2pc;
+    background: #4f44e9;
+    font-family: system-ui;
+    border-radius: 2pc;
+    color: white;
+	text-decoration: none;
+	text-align: center;
+	border-color: white;
+	border-width: 12pc 12pc 12pc 12pc;
+}

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksantichat=self.webpackChunksantichat||[]).push([[8],{8:(t,e,n)=>{n.r(e),n.d(e,{default:()=>a});var s=n(294);function a(t){const e=t.auth;return e.currentUser&&s.createElement("button",{className:"sign-out",onClick:()=>e.signOut()},"Cerrar sesión")}}}]);

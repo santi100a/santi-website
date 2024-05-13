@@ -1,0 +1,40 @@
+body {
+    font-family: system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background-color: black;
+    }
+}
+
+input:not([type=submit]) {
+    width: 17pc;
+    padding: 1.2pc;
+    border: 0.1pc solid #ccc;
+    border-radius: 0.4pc;
+    height: 0.13pc; 
+    color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.unit {
+    padding: 1.2pc;
+    border-radius: 0.4pc;
+    width: 17pc;
+}
+
+button, .button {
+    padding: 1.5pc 3.2pc;
+    background: #4f44e9;
+    font-family: system-ui;
+    border-radius: 2pc;
+    color: white;
+    border-color: none;
+    border-width: 0 0 0 0;
+}

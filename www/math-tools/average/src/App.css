@@ -1,0 +1,27 @@
+body {
+    font-family: system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background-color: black;
+    }
+}
+
+input {
+    width: 17pc;
+    padding: 1.2pc;
+    border: 0.1pc solid #ccc;
+    border-radius: 0.4pc;
+    height: 0.13pc; 
+}
+button {
+    padding: 1.5pc 3.2pc;
+    background: #4f44e9;
+    font-family: system-ui;
+    border-radius: 2pc;
+    color: white;
+    border-color: none;
+    border-width: 0 0 0 0;
+}
