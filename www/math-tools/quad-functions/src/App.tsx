@@ -2,6 +2,8 @@ import { FormEvent, createRef, useCallback } from 'react';
 import './App.css';
 import QuadraticFunction from '@santi100a/quadratic-function';
 
+const PRECISION_FIGURES = 7;
+
 export default function App() {
   const aRef = createRef<HTMLInputElement>();
   const bRef = createRef<HTMLInputElement>();
@@ -24,17 +26,27 @@ export default function App() {
       const quad = new QuadraticFunction(a, b, c);
       const turningPoint = quad.vertex();
       const stringRoots: string[] = [];
+      const xInterceptStrings = [];
       const realRoots = quad.roots();
       for (const realRoot of realRoots) {
-        stringRoots.push(Number(realRoot).toFixed(7));
+        stringRoots.push(Number(realRoot).toFixed(PRECISION_FIGURES));
       } 
+      for (const stringRoot of stringRoots) {
+        xInterceptStrings.push(`(${stringRoot}, ${(0).toFixed(PRECISION_FIGURES)})`);
+      }
+
 
       if (resultRef.current !== null)
-        resultRef.current.innerText = `Punto de inflexión: (${turningPoint.x.toFixed(7)}, ${turningPoint.y.toFixed(7)})\n` + 
-                                      `Raíces reales: ${stringRoots.join(', ') || '(ninguna)'}`;
+      
+        resultRef.current.innerText = `La parábola se abre hacia ${a > 0 ? 'arriba' : 'abajo'}.\n` +
+                                      `Punto de inflexión: (${turningPoint.x.toFixed(PRECISION_FIGURES)}, ${turningPoint.y.toFixed(PRECISION_FIGURES)})\n` + 
+                                      `Raíces reales: ${stringRoots.join(', ') || '(ninguna)'}\n` + 
+                                      `Intersección(es) con el eje X: ${xInterceptStrings.join(', ') || '(ninguna)'}\n` + 
+                                      `Intersección con el eje Y: (${(0).toFixed(PRECISION_FIGURES)}, ${c.toFixed(PRECISION_FIGURES)})\n`
+
 
       if (evalRef.current !== null)
-        evalRef.current.innerText = `${quad.evaluate(Number(inputRef.current?.value)).toFixed(7)}`;
+        evalRef.current.innerText = `${quad.evaluate(Number(inputRef.current?.value)).toFixed(PRECISION_FIGURES)}`;
      
     },
     [aRef, bRef, cRef]
@@ -42,7 +54,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Información de función cuadrática (precisión de 7 cifras)</h1>
+      <h1>Información de función cuadrática (precisión de {PRECISION_FIGURES} cifras)</h1>
       <form onSubmit={callback}>
         Para la función f(x) = <input type="number" ref={aRef} defaultValue={1} step={0.0000000000000001} />
         x^2 + <input type="number" ref={bRef} defaultValue={0} step={0.0000000000000001} />x +{' '}

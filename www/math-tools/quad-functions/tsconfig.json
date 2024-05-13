@@ -5,6 +5,7 @@
         "strictFunctionTypes": true,
         "noImplicitAny": true,
         "esModuleInterop": true,
-        "jsx": "react-jsx"
+        "jsx": "react-jsx",
+        "target": "es3"
     }
 }
