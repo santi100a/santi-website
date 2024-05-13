@@ -14,7 +14,7 @@
         margin-bottom: 1pc;
     }
     
-    input[type="submit"] {
+    button {
         padding: 1.6pc 3.2pc;
         border: 0.1pc solid #ccc;
         border-radius: 1pc;
@@ -26,29 +26,25 @@
         padding: .8pc 1.6pc;
         border: 0.1pc solid #ccc;
     }</style>
-    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
     <noscript>
         ¡Este sitio no funcionará con JavaScript desactivado!
     </noscript>
     <h1>Codificar y descodificar a Base64</h1>
-    <form id="base64">
-        <input type="text" name="data" placeholder="Datos a codificar o descodificar" /> <br />
+        <input type="text" name="data" placeholder="Datos a codificar o descodificar" id="data" /> <br />
         <label for="actions">Selecciona una acción</label>
-        <select name="action" id="actions">
+        <select name="action" id="action">
             <option value="encode">Codificar</option>
             <option value="decode">Descodificar</option>
         </select> <br />
-        <input type="submit" value="Enviar" />
-    </form>
+        <button id="submit">Enviar</button>
     <script>
-        var form = document.forms[0];
-        var input = form.children[0];
-        var action = document.getElementById('actions');
+        var input = document.getElementById('data');
+        var action = document.getElementById('action');
+        var btn = document.getElementById('submit');
 
-        form.onsubmit = function(event) {
-            event.preventDefault();
+        btn.onclick = function() {
             if (action.value == 'encode')
                 alert('Resultado: ' + btoa(input.value));
             else    
