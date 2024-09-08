@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx', // Entry point of your application
@@ -31,6 +32,19 @@ module.exports = {
     port: 9000, // Dev server port
   },
   plugins: [
-    new HTMLWebpackPlugin({ title: 'Banco de Santinia' })
-  ]
+    new HTMLWebpackPlugin({ template: 'template/index.html', favicon: 'template/favicon.ico' })
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            unused: true,
+            dead_code: true,
+          },
+        },
+      }),
+    ],
+  },
 };

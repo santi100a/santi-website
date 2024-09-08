@@ -10,6 +10,7 @@ import TransactionHistory from './TransactionHistory';
 import financialFormat from '../lib/financialFormat';
 import TransactionInfo from './TransactionInfo';
 import ErrorString from './ErrorString';
+import LoadingSpinner from './LoadingSpinner';
 
 function App() {
 	const [infoBannerContent, setInfoBanner] = useState(<></>);
@@ -21,7 +22,7 @@ function App() {
 		const username = event.target.username.value;
 		// @ts-expect-error
 		const password = event.target.password.value;
-		setInfoBanner(<p>Cargando...</p>);
+		setInfoBanner(<LoadingSpinner />);
 		try {
 			const userData = await fetchUser(username, password);
 			if (!userData.error) {
@@ -66,7 +67,7 @@ function App() {
 		e.preventDefault();
 		// @ts-expect-error
 		const username = e.target.username.value;
-		setInfoBanner(<p>Cargando...</p>);
+		setInfoBanner(<LoadingSpinner />);
 		const results = await createUser(username);
 		if (!results.error) {
 			// alert("¡Felicidades! ¡Ahora eres parte de nuestra base de datos!");
@@ -116,7 +117,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 		);
 		if (!userConfirms) return;
 
-		setInfoBanner(<p>Cargando...</p>);
+		setInfoBanner(<LoadingSpinner />);
 		try {
 			const results = await sendMoney(
 				username,
@@ -149,7 +150,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 		e.preventDefault();
 		const username = e.target.username.value;
 		const password = e.target.password.value;
-		setInfoBanner(<p>Cargando...</p>);
+		setInfoBanner(<LoadingSpinner />);
 		const userConfirms = confirm('¿Seguro que deseas borrar tu cuenta?');
 		if (userConfirms) {
 			const results = await deleteUser(username, password);
@@ -157,8 +158,6 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 				// alert("Eliminación exitosa.");
 				setInfoBanner(<>Usuario {username} eliminado.</>);
 			} else {
-				// alert("Error.");
-				console.table(results.error);
 				const {
 					error: { code, description },
 					status
@@ -184,7 +183,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			const username = usernameRef.current.value;
 			const password = passwordRef.current.value;
 			const transactionHistoryList: TransactionResponse[] = [];
-			setInfoBanner(<>Cargando...</>);
+			setInfoBanner(<LoadingSpinner />);
 			const request: APIResponse<Transaction[]> = await fetch('https://santi-apis.onrender.com/transaction-history', {
 				headers: {
 					Authorization: `Basic ${btoa(`${username}:${password}`)})`
