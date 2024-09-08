@@ -31,6 +31,6 @@ module.exports = {
     port: 9000, // Dev server port
   },
   plugins: [
-    new HTMLWebpackPlugin()
+    new HTMLWebpackPlugin({ title: 'Banco de Santinia' })
   ]
 };

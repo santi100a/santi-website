@@ -1,21 +1,31 @@
+type TransactionStatus = 'approved' | 'pending' | 'declined';
 interface Transaction {
-	amount: number | string;
-    error?: SystemErrorObject;
-	id: string;
-	payer: string;
-	payee: string;
-	purpose: string;
-	status: 'approved' | 'declined';
+	readonly datetime: number;
+	readonly amount: number;
+	status: TransactionStatus;
+	error: APIError | null;
+	readonly id: string;
+	readonly payer: string;
+	readonly payee: string;
+	readonly purpose: string;
 }
-interface SystemResponse {
-	status: number;
-	transaction: Transaction;
+interface User {
+	readonly username: string;
+	transaction_ids: string[];
+	readonly key: string;
 }
-interface SystemErrorObject {
-    code: string;
-    description: string;
+interface SentUser extends User { readonly balance: number; }
+interface APIError {
+	readonly code: string;
+	readonly description: string;
 }
-interface TransactionResponse {
-    error?: SystemErrorObject | null;
-    result: Transaction;
+interface APIResponse<T = Record<string, any>> {
+	readonly status: number;
+	readonly error: APIError | null;
+	readonly result: T | null;
 }
+type TransactionResponse = APIResponse<Transaction>;
+type HistoryResponse = APIResponse<Transaction[]>;
+type CreationResponse = APIResponse<{ token: string }>;
+type UserResponse = APIResponse<User>;
+type SentUserResponse = APIResponse<SentUser>;

@@ -126,7 +126,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 				inputPurpose
 			);
 			setInfoBanner(
-				<TransactionInfo transactionObject={results.transaction} />
+				<TransactionInfo transactionObject={results.result} />
 			);
 		} catch (error) {
 			setInfoBanner(
@@ -185,7 +185,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			const password = passwordRef.current.value;
 			const transactionHistoryList: TransactionResponse[] = [];
 			setInfoBanner(<>Cargando...</>);
-			const request = await fetch('https://santi-apis.onrender.com/my-info', {
+			const request: APIResponse<Transaction[]> = await fetch('https://santi-apis.onrender.com/transaction-history', {
 				headers: {
 					Authorization: `Basic ${btoa(`${username}:${password}`)})`
 				}
@@ -200,36 +200,14 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 					/>
 				);
 			} else {
-				const { transaction_ids: transactionIds } = request.result;
-				for (const id of transactionIds) {
-					const transactionInfo = await fetch(
-						`https://santi-apis.onrender.com/transaction-info?transaction_id=${id}`,
-						{
-							headers: {
-								Authorization: `Basic ${btoa(`${username}:${password}`)})`
-							}
-						}
-					).then((req) => req.json());
-
-					if (transactionInfo.error) {
-						// alert("Error.");
-						setInfoBanner(
-							<ErrorString
-								code={transactionInfo.error.code}
-								description={transactionInfo.error.description}
-								status={transactionInfo.status}
-							/>
-						);
-					}
-					transactionHistoryList.push(transactionInfo);
-				}
+				
 				setTransactionHistory(transactionHistoryList);
 
 				setInfoBanner(
 					<TransactionHistory
 						username={usernameRef.current.value}
 						status={request.status}
-						transactionHistory={transactionHistoryList}
+						transactionHistory={request.result}
 					/>
 				);
 			}

@@ -20,7 +20,7 @@ export default function TransactionHistory({
 	transactionHistory,
 	username
 }: {
-	transactionHistory: TransactionResponse[];
+	transactionHistory: Transaction[];
 	status: string | number;
 	username: string;
 }) {
@@ -34,11 +34,11 @@ export default function TransactionHistory({
 						return (
 							<TransactionInfo
 								transactionObject={
-									username === transaction.result.payee
-										? transaction.result
+									username === transaction.payee
+										? transaction
 										: {
-												...transaction.result,
-												amount: -transaction.result.amount
+												...transaction,
+												amount: -transaction.amount
 										  }
 								}
 							/>
