@@ -12,7 +12,10 @@ export default function TransactionInfo({
 	return (
 		<>
 			<strong>Fecha y hora de la transacción:</strong> {spanishDate(new Date(transactionObject.datetime))} <br />
-			<strong>Id. de transacción:</strong> {transactionObject.id} <br />
+			<strong>Id. de transacción:</strong> {transactionObject.id} 
+			<button onClick={
+				() => navigator.clipboard.writeText(transactionObject.id)
+			}>Copiar</button><br />
 			<strong>Monto:</strong>{' '}
 			<ColoredBalance balance={Number(transactionObject.amount)} /> <br />
 			<strong>Beneficiario:</strong> {transactionObject.payee} <br />

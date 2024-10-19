@@ -23,7 +23,7 @@ input {
 }
 .button.danger {
 	background: red;
-	color: black;
+	color: white;
 }
 .button.warning {
 	background: rgb(255, 208, 0);

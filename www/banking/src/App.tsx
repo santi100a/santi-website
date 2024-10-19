@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import { fetchUser, createUser, deleteUser, sendMoney } from '../lib/fetchUser';
-import messages from '../lib/messages';
+import { fetchUser, createUser, deleteUser, sendMoney, transactionById } from '../lib/fetchUser';
+import CheckTransaction from './CheckTransaction';
 import CreateForm from './CreateForm';
 import LoginForm from './LoginForm';
 import SendForm from './SendForm';
@@ -62,6 +62,19 @@ function App() {
 			);
 		}
 	};
+
+	const handleCheckTransaction = async (e: React.FormEvent) => {
+		e.preventDefault();
+		// @ts-expect-error
+		const transactionId = String(e.target.id.value);
+		setInfoBanner(<LoadingSpinner />);
+		const results = await transactionById(
+			transactionId
+		);
+		setInfoBanner(
+			<TransactionInfo transactionObject={results.result} />
+		);
+	}
 
 	const handleSignup = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -224,6 +237,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			/>
 			<SendForm handleSendMoney={handleSendMoney} />
 			<DeleteForm handleDeleteUser={handleDeleteUser} />
+			<CheckTransaction handleCheckTransaction={handleCheckTransaction} />
 		</div>
 	);
 }
