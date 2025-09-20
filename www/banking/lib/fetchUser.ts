@@ -1,6 +1,6 @@
 /// <reference path="typings.d.ts" />
 
-const apiUrl = 'http://santi-apis.onrender.com.localhost:5000';
+const apiUrl = 'https://santi-apis.onrender.com';
 
 export async function fetchUser(username: string, password: string): Promise<SentUserResponse> {
 	return fetch(`${apiUrl}/my-info`, {

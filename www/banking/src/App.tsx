@@ -157,7 +157,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			const password = passwordRef.current.value;
 			const transactionHistoryList: TransactionResponse[] = [];
 			setInfoBanner(<LoadingSpinner />);
-			const request: APIResponse<Transaction[]> = await fetch('http://santi-apis.onrender.com.localhost:5000/transaction-history', {
+			const request: APIResponse<Transaction[]> = await fetch('https://santi-apis.onrender.com/transaction-history', {
 				headers: {
 					Authorization: "Basic".concat(" ", btoa(`${username}:${password}`))
 				}
