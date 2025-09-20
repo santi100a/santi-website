@@ -1,23 +1,19 @@
 import React from 'react';
 
-export default function CreateForm(props: { handleSignup: (e: React.FormEvent) => Promise<void> }) {
+export default function CreateForm() {
 	return (
-		<form id="signup" onSubmit={props.handleSignup}>
+		<form id="signup">
 			<h2>¡Únete al Banco!</h2>
-			<input
-				type="text"
-				name="username"
-				placeholder="Nombre de usuario"
-				required
-				aria-required
-			/>
-			<br />
-			<input
-				id="signupBtn"
-				className="button success"
-				type="submit"
-				value="Crear cuenta"
-			/>
+			<p>
+				Para crear una cuenta en el Banco de Santinia, comunícate a través de:
+
+				<ul>
+					<li>Correo electrónico: <a href="mailto:supersanti.corp+banco@gmail.com">supersanti.corp@gmail.com</a></li>
+					<li>Teléfono/WhatsApp: <a href="tel:573163121863">+57 (316) 312-1863</a></li>
+				</ul>
+
+				<em>¡Por el pueblo, por el bien; por la humanidad, hermandad!</em>
+			</p>
 		</form>
 	);
 }

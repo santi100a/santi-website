@@ -9,7 +9,8 @@ export default function DeleteForm(
 			<input
 				type="text"
 				id="username"
-				placeholder="Nombre de usuario"
+				placeholder="N° de cuenta (18 dígitos, sin guiones)"
+				maxLength={18}
 				required
 				aria-required
 			/>

@@ -13,7 +13,8 @@ export default function LoginForm(
 				ref={usernameRef}
 				type="text"
 				name="username" // Add name attribute
-				placeholder="Nombre de usuario"
+				placeholder="N° de cuenta (18 dígitos, sin guiones)"
+				maxLength={18}
 				required
 				aria-required
 				autoComplete="username" // Set autocomplete to 'username'

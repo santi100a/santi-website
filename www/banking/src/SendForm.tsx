@@ -7,7 +7,8 @@ export default function SendForm(props: Record<string, (event: React.FormEvent) 
 			<input
 				type="text"
 				name="username"
-				placeholder="Nombre de usuario"
+				placeholder="N° de cuenta del pagador (18 dígitos, sin guiones)"
+				maxLength={18}
 				required
 				aria-required
 			/>
@@ -23,7 +24,8 @@ export default function SendForm(props: Record<string, (event: React.FormEvent) 
 			<input
 				type="text"
 				id="payee"
-				placeholder="Nombre del beneficiario"
+				placeholder="N° de cuenta del beneficiario (18 dígitos, sin guiones)"
+				maxLength={18}
 				required
 				aria-required
 			/>

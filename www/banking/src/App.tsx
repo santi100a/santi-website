@@ -26,7 +26,6 @@ function App() {
 		try {
 			const userData = await fetchUser(username, password);
 			if (!userData.error) {
-				// alert("¡Inic. ses. con éxito!");
 				const { balance } = userData.result;
 				setInfoBanner(
 					<>
@@ -34,7 +33,6 @@ function App() {
 					</>
 				);
 			} else {
-				// alert("Error.");
 				console.table(userData.error);
 				const {
 					error: { code, description },
@@ -76,43 +74,7 @@ function App() {
 		);
 	}
 
-	const handleSignup = async (e: React.FormEvent) => {
-		e.preventDefault();
-		// @ts-expect-error
-		const username = e.target.username.value;
-		setInfoBanner(<LoadingSpinner />);
-		const results = await createUser(username);
-		if (!results.error) {
-			// alert("¡Felicidades! ¡Ahora eres parte de nuestra base de datos!");
-			setInfoBanner(
-				<>
-					<strong>
-						NO PIERDAS NI COMPARTAS EL TOKEN. ES TU CLAVE BANCARIA.
-					</strong>
-					<br />
-					<strong>Token bancario:</strong>{' '}
-					<span style={{ fontFamily: 'monospace' }}>
-						{results.result.token}
-					</span>{' '}
-					<button
-						onClick={() => navigator.clipboard.writeText(results.result.token)}>
-						Copiar token
-					</button>
-				</>
-			);
-		} else {
-			// alert("Error.");
-			console.table(results.error);
-			const {
-				error: { code, description },
-				status
-			} = results;
-			setInfoBanner(
-				<ErrorString code={code} description={description} status={status} />
-			);
-		}
-	};
-
+	
 	const handleSendMoney = async (e) => {
 		e.preventDefault();
 		const username = e.target.username.value;
@@ -142,7 +104,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			setInfoBanner(
 				<TransactionInfo transactionObject={results.result} />
 			);
-		} catch (error) {
+		} catch {
 			setInfoBanner(
 				<>
 					Ha ocurrido un error de red.
@@ -151,7 +113,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 						<li>Verifica tu conexión a Internet.</li>
 						<li>
 							Si el problema persiste,{' '}
-							<a href="mailto:santyrojasprieto9+bank@gmail.com">contáctanos</a>.
+							<a href="mailto:supersanti.corp+banco@gmail.com">contáctanos</a>.
 						</li>
 					</ul>
 				</>
@@ -168,7 +130,6 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 		if (userConfirms) {
 			const results = await deleteUser(username, password);
 			if (!results.error) {
-				// alert("Eliminación exitosa.");
 				setInfoBanner(<>Usuario {username} eliminado.</>);
 			} else {
 				const {
@@ -180,7 +141,6 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 				);
 			}
 		} else {
-			// alert("Operación de borrado cancelada.");
 			setInfoBanner(<>Operación de borrado cancelada.</>);
 		}
 	};
@@ -197,13 +157,13 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 			const password = passwordRef.current.value;
 			const transactionHistoryList: TransactionResponse[] = [];
 			setInfoBanner(<LoadingSpinner />);
-			const request: APIResponse<Transaction[]> = await fetch('https://santi-apis.onrender.com/transaction-history', {
+			const request: APIResponse<Transaction[]> = await fetch('http://santi-apis.onrender.com.localhost:5000/transaction-history', {
 				headers: {
-					Authorization: `Basic ${btoa(`${username}:${password}`)})`
+					Authorization: "Basic".concat(" ", btoa(`${username}:${password}`))
 				}
 			}).then((req) => req.json());
 			if (request.error) {
-				// alert("Error.");
+				
 				setInfoBanner(
 					<ErrorString
 						code={request.error.code}
@@ -230,7 +190,7 @@ LA TRANSACCIÓN NO PUEDE SER REVERTIDA UNA VEZ EFECTUADA.`
 		<div>
 			<h1>Inicia sesión, regístrate y envía dinero - Banco de Santinia</h1>
 			<InfoBanner />
-			<CreateForm handleSignup={handleSignup} />
+			<CreateForm />
 			<LoginForm
 				handleLogin={handleLogin}
 				handleTransactionHistory={handleTransactionHistory}

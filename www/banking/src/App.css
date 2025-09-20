@@ -39,4 +39,10 @@ input {
 		color: white;
 		background: black;
 	}
+	a {
+		color: #00bfff;
+	}
+	a:visited {
+		color: #d560ff;
+	}
 }
